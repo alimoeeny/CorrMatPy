@@ -1,0 +1,13 @@
+Introduction
+
+Assume there are N sensors (or neurons in a biological brain) and we have M measurments for each sensor (M trials of stimulus presentation for each neuron). We'd have an N by M matrix. If we wanted to see the relation or dependency of these sensors the simplest approach would be to check their correlations. For our N by M matrix we'd have an N by N correlation matrix. 
+
+Now if in some case we know the structure of the correlation matrix (like in case of neurons in animal brains), we can sample the possible sensor readings (firing rates of neurons) by going back from the known N by N correlation matrix to samples of the N by M matrix. 
+
+There are analytical solutions for this that have their pros and cons. 
+
+CorrMatPy uses a brute force like method to sample this space. It starts with a random N by M matrix and moves one random cell in the direction of the gradient that makes the initial correlation matrix move toward the target correlation matrix. and repeats this for randomly chosen cells over and over until a criterion is met. 
+
+On a large matrix (N > 5000 and M > 1000) this procedure practically fails due to the processing time needed. CorrMatPy distributes the task over a cluster (clients) wich accept tasks from a server (over a TCP connection) ane save the resust back to disk and notifing the server over the TCP connection. 
+
+On a closter of 512 clients CorrMatPy is tested and performed reasonably efficient.   
