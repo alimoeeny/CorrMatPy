@@ -10,4 +10,4 @@ CorrMatPy uses a brute force like method to sample this space. It starts with a 
 
 On a large matrix (N > 5000 and M > 1000) this procedure practically fails due to the processing time needed. CorrMatPy distributes the task over a cluster (clients) wich accept tasks from a server (over a TCP connection) ane save the resust back to disk and notifing the server over the TCP connection. 
 
-On a closter of 512 clients CorrMatPy is tested and performed reasonably efficient.   
+On a cluster of 512 clients (beowulf style, Fedora, gigabit connections, 4-32 cores, 8-512GB ram) CorrMatPy is tested and performed reasonably efficient.   
